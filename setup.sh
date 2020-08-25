@@ -59,7 +59,7 @@ setup_compose() {
 
     cd $REDASH_BASE_PATH
     GIT_BRANCH="${REDASH_BRANCH:-master}" # Default branch/version to master if not specified in REDASH_BRANCH env var
-    wget https://raw.githubusercontent.com/getredash/setup/${GIT_BRANCH}/data/docker-compose.yml
+    wget https://github.com/xxingjjing/setup/edit/master/data/docker-compose.yml
     sed -ri "s/image: redash\/redash:([A-Za-z0-9.-]*)/image: redash\/redash:$LATEST_VERSION/" docker-compose.yml
     echo "export COMPOSE_PROJECT_NAME=redash" >> ~/.profile
     echo "export COMPOSE_FILE=/opt/redash/docker-compose.yml" >> ~/.profile
