@@ -55,7 +55,11 @@ create_config() {
 
 setup_compose() {
     cd $REDASH_BASE_PATH
+    wget https://aianimegan.s3.cn-northwest-1.amazonaws.com.cn/redash/docker-compose.yml
+    echo "export COMPOSE_PROJECT_NAME=redash" >> ~/.profile
+    echo "export COMPOSE_FILE=/opt/redash/docker-compose.yml" >> ~/.profile
     export COMPOSE_PROJECT_NAME=redash
+    export COMPOSE_FILE=/opt/redash/docker-compose.yml
     sudo docker-compose run --rm server create_db
     sudo docker-compose up -d
 }
