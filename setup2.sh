@@ -56,6 +56,7 @@ create_config() {
 setup_compose() {
     cd $REDASH_BASE_PATH
     export COMPOSE_PROJECT_NAME=redash
+    export COMPOSE_FILE=./data/docker-compose.yml
     sudo docker-compose run --rm server create_db
     sudo docker-compose up -d
 }
